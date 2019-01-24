@@ -8,8 +8,7 @@ import java.math.BigInteger;
 import org.junit.Test;
 
 /**
- * This is the test-class for all methods of {@link ArraySumCalculator} handling
- * arrays of BigInteger.
+ * This is the test-class for all methods of {@link ArraySumCalculator} handling arrays of BigInteger.
  */
 public class ArraySumCalculatorBigIntegerTest {
 
@@ -65,7 +64,7 @@ public class ArraySumCalculatorBigIntegerTest {
 			ArraySumCalculator.sumBigIntegerLoop(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 
@@ -121,7 +120,7 @@ public class ArraySumCalculatorBigIntegerTest {
 			ArraySumCalculator.sumBigIntegerStream(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 

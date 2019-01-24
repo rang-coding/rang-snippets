@@ -3,20 +3,19 @@ package com.rang.snippets.math.sum;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Optional;
+import java.util.Objects;
 
 /**
- * This class contains multiple examples of how to form a sum.
+ * This class contains multiple examples of how to form a sum over an array of numbers.
  *
  * @see {@link CollectionSumCalculator} for more examples regarding Collections.
- * @see {@link PropertySumCalculator} for more examples regarding properties of
- *      objects.
+ * @see {@link PropertySumCalculator} for more examples regarding properties of objects.
  */
 public class ArraySumCalculator {
 
 	/**
-	 * Forms the sum over an array of primitive int (int[]) by using a conventional
-	 * for-loop.
+	 * Forms the sum over an array of primitive int (int[]) by using a conventional for-loop. Sums higher than
+	 * 2147483647 or lower than -2147483648 will cause integer overflow.
 	 * 
 	 * @param values Values as array of primitive int
 	 * @return Sum as primitive int
@@ -30,8 +29,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of primitive int (int[]) under the usage of
-	 * streams.
+	 * Forms the sum over an array of primitive int (int[]) under the usage of streams. Sums higher than 2147483647 or
+	 * lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as array of primitive int
 	 * @return Sum as primitive int
@@ -43,8 +42,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an arbitrary number of primitive int (int...) by using a
-	 * conventional for-loop.
+	 * Forms the sum over an arbitrary number of primitive int (int...) by using a conventional for-loop. Sums higher
+	 * than 2147483647 or lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as varargs of primitive int
 	 * @return Sum as primitive int
@@ -58,8 +57,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an arbitrary number of primitive int (int...) under the
-	 * usage of streams.
+	 * Forms the sum over an arbitrary number of primitive int (int...) under the usage of streams. Sums higher than
+	 * 2147483647 or lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as varargs of primitive int
 	 * @return Sum as primitive int
@@ -71,8 +70,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of Integer-objects (Integer[]) by using a
-	 * conventional for-loop.
+	 * Forms the sum over an array of Integer-objects (Integer[]) by using a conventional for-loop. Sums higher than
+	 * 2147483647 or lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as array of Integer-objects
 	 * @return Sum as Integer-object
@@ -86,22 +85,20 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of Integer-objects (Integer[]) under the usage of
-	 * streams.
+	 * Forms the sum over an array of Integer-objects (Integer[]) under the usage of streams. Sums higher than
+	 * 2147483647 or lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as array of Integer-objects
 	 * @return Sum as Integer-object
 	 * @since 1.8
 	 */
 	public static Integer sumIntegerStream(Integer[] values) {
-		// int sum = Arrays.stream(values).mapToInt(Integer::intValue).sum();
-		int sum = Arrays.stream(values).mapToInt(value -> value == null ? 0 : value.intValue()).sum();
+		int sum = Arrays.stream(values).filter(Objects::nonNull).mapToInt(Integer::intValue).sum();
 		return Integer.valueOf(sum);
 	}
 
 	/**
-	 * Forms the sum over an array of BigInteger (BigInteger[]) by using a
-	 * conventional for-loop.
+	 * Forms the sum over an array of BigInteger (BigInteger[]) by using a conventional for-loop.
 	 *
 	 * @param values Values as array of BigInteger
 	 * @return Sum as BigInteger
@@ -109,27 +106,28 @@ public class ArraySumCalculator {
 	public static BigInteger sumBigIntegerLoop(BigInteger[] values) {
 		BigInteger sum = BigInteger.ZERO;
 		for (BigInteger value : values) {
+			if (value == null) {
+				continue;
+			}
 			sum = sum.add(value);
 		}
 		return sum;
 	}
 
 	/**
-	 * Forms the sum over an array of BigInteger (BigInteger[]) under the usage of
-	 * streams.
+	 * Forms the sum over an array of BigInteger (BigInteger[]) under the usage of streams.
 	 *
 	 * @param values Values as array of BigInteger
 	 * @return Sum as BigInteger
 	 * @since 1.8
 	 */
 	public static BigInteger sumBigIntegerStream(BigInteger[] values) {
-		Optional<BigInteger> sum = Arrays.stream(values).reduce(BigInteger::add);
-		return sum.orElse(BigInteger.ZERO);
+		BigInteger sum = Arrays.stream(values).filter(Objects::nonNull).reduce(BigInteger.ZERO, BigInteger::add);
+		return sum;
 	}
 
 	/**
-	 * Forms the sum over an array of BigDecimal (BigDecimal[]) by using a
-	 * conventional for-loop.
+	 * Forms the sum over an array of BigDecimal (BigDecimal[]) by using a conventional for-loop.
 	 *
 	 * @param values Values as array of BigDecimal
 	 * @return Sum as BigDecimal
@@ -137,22 +135,24 @@ public class ArraySumCalculator {
 	public static BigDecimal sumBigDecimalLoop(BigDecimal[] values) {
 		BigDecimal sum = BigDecimal.ZERO;
 		for (BigDecimal value : values) {
+			if (value == null) {
+				continue;
+			}
 			sum = sum.add(value);
 		}
 		return sum;
 	}
 
 	/**
-	 * Forms the sum over an array of BigDecimal (BigDecimal[]) under the usage of
-	 * streams.
+	 * Forms the sum over an array of BigDecimal (BigDecimal[]) under the usage of streams.
 	 *
 	 * @param values Values as array of BigDecimal
 	 * @return Sum as BigDecimal
 	 * @since 1.8
 	 */
 	public static BigDecimal sumBigDecimalStream(BigDecimal[] values) {
-		Optional<BigDecimal> sum = Arrays.stream(values).reduce(BigDecimal::add);
-		return sum.orElse(BigDecimal.ZERO);
+		BigDecimal sum = Arrays.stream(values).filter(Objects::nonNull).reduce(BigDecimal.ZERO, BigDecimal::add);
+		return sum;
 	}
 
 	/**
@@ -204,7 +204,6 @@ public class ArraySumCalculator {
 		System.out.println("Case 5 - Sum of BigDecimal[] - " //
 				+ "loop: " + bigDecimalSumLoop + "  " //
 				+ "stream: " + bigDecimalSumStream);
-
 	}
 
 }

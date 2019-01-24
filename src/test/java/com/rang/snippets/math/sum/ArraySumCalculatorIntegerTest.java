@@ -6,8 +6,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
- * This is the test-class for all methods of {@link ArraySumCalculator} handling
- * arrays of Integer-objects.
+ * This is the test-class for all methods of {@link ArraySumCalculator} handling arrays of Integer-objects.
  */
 public class ArraySumCalculatorIntegerTest {
 
@@ -63,7 +62,7 @@ public class ArraySumCalculatorIntegerTest {
 			ArraySumCalculator.sumIntegerLoop(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 
@@ -119,7 +118,7 @@ public class ArraySumCalculatorIntegerTest {
 			ArraySumCalculator.sumIntegerStream(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 

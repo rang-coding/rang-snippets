@@ -1,13 +1,13 @@
 package com.rang.snippets.math.sum;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
 /**
- * This is the test-class for all methods of {@link ArraySumCalculator} handling
- * arrays of primitive int.
+ * This is the test-class for all methods of {@link ArraySumCalculator} handling arrays of primitive int.
  */
 public class ArraySumCalculatorIntTest {
 
@@ -58,12 +58,26 @@ public class ArraySumCalculatorIntTest {
 	}
 
 	@Test
+	public void sumIntLoopWithMaxOverflow() {
+		int[] values = { Integer.MAX_VALUE, 17 };
+		int sum = ArraySumCalculator.sumIntLoop(values);
+		assertTrue(sum < 0);
+	}
+
+	@Test
+	public void sumIntLoopWithMinOverflow() {
+		int[] values = { Integer.MIN_VALUE, -17 };
+		int sum = ArraySumCalculator.sumIntLoop(values);
+		assertTrue(sum > 0);
+	}
+
+	@Test
 	public void sumIntLoopWithNullArray() {
 		try {
 			ArraySumCalculator.sumIntLoop(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 
@@ -119,7 +133,7 @@ public class ArraySumCalculatorIntTest {
 			ArraySumCalculator.sumIntStream(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 
@@ -169,7 +183,7 @@ public class ArraySumCalculatorIntTest {
 			ArraySumCalculator.sumIntVarargsLoop(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 
@@ -219,7 +233,7 @@ public class ArraySumCalculatorIntTest {
 			ArraySumCalculator.sumIntVarargsStream(null);
 			fail("NullPointerException expected");
 		} catch (NullPointerException e) {
-			// The method is not nullsafe for easier understanding
+			// The method is not null-safe for easier understanding
 		}
 	}
 
