@@ -1,6 +1,7 @@
 package com.rang.snippets.math.sum;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -10,7 +11,7 @@ import org.junit.Test;
  */
 public class ArraySumCalculatorIntegerTest {
 
-	/* ***** ***** ***** Tests of method sumIntLoop() ***** ***** ***** */
+	/* ***** ***** ***** Tests of method sumIntegerLoop() ***** ***** ***** */
 
 	@Test
 	public void sumIntegerLoopWithPositiveValues() {
@@ -42,11 +43,25 @@ public class ArraySumCalculatorIntegerTest {
 
 	@Test
 	public void sumIntegerLoopWithNullValues() {
-		Integer[] values = new Integer[3];
+		Integer[] values = new Integer[4];
 		values[0] = 4;
-		values[2] = 21;
+		values[3] = 21;
 		Integer sum = ArraySumCalculator.sumIntegerLoop(values);
 		assertEquals(25, sum.intValue());
+	}
+
+	@Test
+	public void sumIntegerLoopWithMaxOverflow() {
+		Integer[] values = { Integer.MAX_VALUE, 17 };
+		Integer sum = ArraySumCalculator.sumIntegerLoop(values);
+		assertTrue(sum.intValue() < 0); // Overflow caused
+	}
+
+	@Test
+	public void sumIntegerLoopWithMinOverflow() {
+		Integer[] values = { Integer.MIN_VALUE, -17 };
+		Integer sum = ArraySumCalculator.sumIntegerLoop(values);
+		assertTrue(sum.intValue() > 0); // Overflow caused
 	}
 
 	@Test
@@ -66,7 +81,7 @@ public class ArraySumCalculatorIntegerTest {
 		}
 	}
 
-	/* ***** ***** ***** Tests of method sumIntStream() ***** ***** ***** */
+	/* ***** ***** ***** Tests of method sumIntegerStream() ***** ***** ***** */
 
 	@Test
 	public void sumIntegerStreamWithPositiveValues() {
@@ -98,11 +113,25 @@ public class ArraySumCalculatorIntegerTest {
 
 	@Test
 	public void sumIntegerStreamWithNullValues() {
-		Integer[] values = new Integer[3];
+		Integer[] values = new Integer[4];
 		values[0] = 4;
-		values[2] = 21;
+		values[3] = 21;
 		Integer sum = ArraySumCalculator.sumIntegerStream(values);
 		assertEquals(25, sum.intValue());
+	}
+
+	@Test
+	public void sumIntegerStreamWithMaxOverflow() {
+		Integer[] values = { Integer.MAX_VALUE, 17 };
+		Integer sum = ArraySumCalculator.sumIntegerStream(values);
+		assertTrue(sum.intValue() < 0); // Overflow caused
+	}
+
+	@Test
+	public void sumIntegerStreamWithMinOverflow() {
+		Integer[] values = { Integer.MIN_VALUE, -17 };
+		Integer sum = ArraySumCalculator.sumIntegerStream(values);
+		assertTrue(sum.intValue() > 0); // Overflow caused
 	}
 
 	@Test

@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class ArraySumCalculatorBigDecimalTest {
 
-	/* ***** ***** ***** Tests of method sumIntLoop() ***** ***** ***** */
+	/* ***** ***** ***** Tests of method sumBigDecimalLoop() ***** ***** ***** */
 
 	@Test
 	public void sumBigDecimalLoopWithPositiveValues() {
@@ -44,11 +44,25 @@ public class ArraySumCalculatorBigDecimalTest {
 
 	@Test
 	public void sumBigDecimalLoopWithNullValues() {
-		BigDecimal[] values = new BigDecimal[3];
+		BigDecimal[] values = new BigDecimal[4];
 		values[0] = BigDecimal.valueOf(4.04);
-		values[2] = BigDecimal.valueOf(21.21);
+		values[3] = BigDecimal.valueOf(21.21);
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalLoop(values);
 		assertEquals(new BigDecimal("25.25"), sum);
+	}
+
+	@Test
+	public void sumBigDecimalLoopHigherThanMaxInteger() {
+		BigDecimal[] values = { BigDecimal.valueOf(Integer.MAX_VALUE), BigDecimal.valueOf(17.17) };
+		BigDecimal sum = ArraySumCalculator.sumBigDecimalLoop(values);
+		assertEquals(new BigDecimal("2147483664.17"), sum); // No overflow
+	}
+
+	@Test
+	public void sumBigDecimalLoopLowerThanMinInteger() {
+		BigDecimal[] values = { BigDecimal.valueOf(Integer.MIN_VALUE), BigDecimal.valueOf(-17.17) };
+		BigDecimal sum = ArraySumCalculator.sumBigDecimalLoop(values);
+		assertEquals(new BigDecimal("-2147483665.17"), sum); // No overflow
 	}
 
 	@Test
@@ -68,7 +82,7 @@ public class ArraySumCalculatorBigDecimalTest {
 		}
 	}
 
-	/* ***** ***** ***** Tests of method sumIntStream() ***** ***** ***** */
+	/* ***** ***** ***** Tests of method sumBigDecimalStream() ***** ***** ***** */
 
 	@Test
 	public void sumBigDecimalStreamWithPositiveValues() {
@@ -100,11 +114,25 @@ public class ArraySumCalculatorBigDecimalTest {
 
 	@Test
 	public void sumBigDecimalStreamWithNullValues() {
-		BigDecimal[] values = new BigDecimal[3];
+		BigDecimal[] values = new BigDecimal[4];
 		values[0] = BigDecimal.valueOf(4.04);
-		values[2] = BigDecimal.valueOf(21.21);
+		values[3] = BigDecimal.valueOf(21.21);
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalStream(values);
 		assertEquals(new BigDecimal("25.25"), sum);
+	}
+
+	@Test
+	public void sumBigDecimalStreamHigherThanMaxInteger() {
+		BigDecimal[] values = { BigDecimal.valueOf(Integer.MAX_VALUE), BigDecimal.valueOf(17.17) };
+		BigDecimal sum = ArraySumCalculator.sumBigDecimalStream(values);
+		assertEquals(new BigDecimal("2147483664.17"), sum); // No overflow
+	}
+
+	@Test
+	public void sumBigDecimalStreamLowerThanMinInteger() {
+		BigDecimal[] values = { BigDecimal.valueOf(Integer.MIN_VALUE), BigDecimal.valueOf(-17.17) };
+		BigDecimal sum = ArraySumCalculator.sumBigDecimalStream(values);
+		assertEquals(new BigDecimal("-2147483665.17"), sum); // No overflow
 	}
 
 	@Test

@@ -43,11 +43,25 @@ public class ArraySumCalculatorIntTest {
 
 	@Test
 	public void sumIntLoopWithNullValues() {
-		int[] values = new int[3];
+		int[] values = new int[4];
 		values[0] = 4;
-		values[2] = 21;
+		values[3] = 21;
 		int sum = ArraySumCalculator.sumIntLoop(values);
 		assertEquals(25, sum);
+	}
+
+	@Test
+	public void sumIntLoopWithMaxOverflow() {
+		int[] values = { Integer.MAX_VALUE, 17 };
+		int sum = ArraySumCalculator.sumIntLoop(values);
+		assertTrue(sum < 0); // Overflow caused
+	}
+
+	@Test
+	public void sumIntLoopWithMinOverflow() {
+		int[] values = { Integer.MIN_VALUE, -17 };
+		int sum = ArraySumCalculator.sumIntLoop(values);
+		assertTrue(sum > 0); // Overflow caused
 	}
 
 	@Test
@@ -55,20 +69,6 @@ public class ArraySumCalculatorIntTest {
 		int[] values = new int[0];
 		int sum = ArraySumCalculator.sumIntLoop(values);
 		assertEquals(0, sum);
-	}
-
-	@Test
-	public void sumIntLoopWithMaxOverflow() {
-		int[] values = { Integer.MAX_VALUE, 17 };
-		int sum = ArraySumCalculator.sumIntLoop(values);
-		assertTrue(sum < 0);
-	}
-
-	@Test
-	public void sumIntLoopWithMinOverflow() {
-		int[] values = { Integer.MIN_VALUE, -17 };
-		int sum = ArraySumCalculator.sumIntLoop(values);
-		assertTrue(sum > 0);
 	}
 
 	@Test
@@ -113,11 +113,25 @@ public class ArraySumCalculatorIntTest {
 
 	@Test
 	public void sumIntStreamWithNullValues() {
-		int[] values = new int[3];
+		int[] values = new int[4];
 		values[0] = 4;
-		values[2] = 21;
+		values[3] = 21;
 		int sum = ArraySumCalculator.sumIntStream(values);
 		assertEquals(25, sum);
+	}
+
+	@Test
+	public void sumIntStreamWithMaxOverflow() {
+		int[] values = { Integer.MAX_VALUE, 17 };
+		int sum = ArraySumCalculator.sumIntStream(values);
+		assertTrue(sum < 0); // Overflow caused
+	}
+
+	@Test
+	public void sumIntStreamWithMinOverflow() {
+		int[] values = { Integer.MIN_VALUE, -17 };
+		int sum = ArraySumCalculator.sumIntStream(values);
+		assertTrue(sum > 0); // Overflow caused
 	}
 
 	@Test
@@ -171,6 +185,20 @@ public class ArraySumCalculatorIntTest {
 	}
 
 	@Test
+	public void sumIntVarargsLoopWithMaxOverflow() {
+		int[] values = { Integer.MAX_VALUE, 17 };
+		int sum = ArraySumCalculator.sumIntVarargsLoop(values);
+		assertTrue(sum < 0); // Overflow caused
+	}
+
+	@Test
+	public void sumIntVarargsLoopWithMinOverflow() {
+		int[] values = { Integer.MIN_VALUE, -17 };
+		int sum = ArraySumCalculator.sumIntVarargsLoop(values);
+		assertTrue(sum > 0); // Overflow caused
+	}
+
+	@Test
 	public void sumIntVarargsLoopWithEmtpyArray() {
 		int[] values = new int[0];
 		int sum = ArraySumCalculator.sumIntVarargsLoop(values);
@@ -218,6 +246,20 @@ public class ArraySumCalculatorIntTest {
 		int[] values = { 4, 17, 21 };
 		int sum = ArraySumCalculator.sumIntVarargsStream(values);
 		assertEquals(42, sum);
+	}
+
+	@Test
+	public void sumIntVarargsStreamWithMaxOverflow() {
+		int[] values = { Integer.MAX_VALUE, 17 };
+		int sum = ArraySumCalculator.sumIntVarargsStream(values);
+		assertTrue(sum < 0); // Overflow caused
+	}
+
+	@Test
+	public void sumIntVarargsStreamWithMinOverflow() {
+		int[] values = { Integer.MIN_VALUE, -17 };
+		int sum = ArraySumCalculator.sumIntVarargsStream(values);
+		assertTrue(sum > 0); // Overflow caused
 	}
 
 	@Test

@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class ArraySumCalculatorBigIntegerTest {
 
-	/* ***** ***** ***** Tests of method sumIntLoop() ***** ***** ***** */
+	/* ***** ***** ***** Tests of method sumBigIntegerLoop() ***** ***** ***** */
 
 	@Test
 	public void sumBigIntegerLoopWithPositiveValues() {
@@ -44,11 +44,25 @@ public class ArraySumCalculatorBigIntegerTest {
 
 	@Test
 	public void sumBigIntegerLoopWithNullValues() {
-		BigInteger[] values = new BigInteger[3];
+		BigInteger[] values = new BigInteger[4];
 		values[0] = BigInteger.valueOf(4);
-		values[2] = BigInteger.valueOf(21);
+		values[3] = BigInteger.valueOf(21);
 		BigInteger sum = ArraySumCalculator.sumBigIntegerLoop(values);
 		assertEquals(25, sum.intValue());
+	}
+
+	@Test
+	public void sumBigIntegerLoopHigherThanMaxInteger() {
+		BigInteger[] values = { BigInteger.valueOf(Integer.MAX_VALUE), BigInteger.valueOf(17) };
+		BigInteger sum = ArraySumCalculator.sumBigIntegerLoop(values);
+		assertEquals(new BigInteger("2147483664"), sum); // No overflow
+	}
+
+	@Test
+	public void sumBigIntegerLoopLowerThanMinInteger() {
+		BigInteger[] values = { BigInteger.valueOf(Integer.MIN_VALUE), BigInteger.valueOf(-17) };
+		BigInteger sum = ArraySumCalculator.sumBigIntegerLoop(values);
+		assertEquals(new BigInteger("-2147483665"), sum); // No overflow
 	}
 
 	@Test
@@ -68,7 +82,7 @@ public class ArraySumCalculatorBigIntegerTest {
 		}
 	}
 
-	/* ***** ***** ***** Tests of method sumIntStream() ***** ***** ***** */
+	/* ***** ***** ***** Tests of method sumBigIntegerStream() ***** ***** ***** */
 
 	@Test
 	public void sumBigIntegerStreamWithPositiveValues() {
@@ -100,11 +114,25 @@ public class ArraySumCalculatorBigIntegerTest {
 
 	@Test
 	public void sumBigIntegerStreamWithNullValues() {
-		BigInteger[] values = new BigInteger[3];
+		BigInteger[] values = new BigInteger[4];
 		values[0] = BigInteger.valueOf(4);
-		values[2] = BigInteger.valueOf(21);
+		values[3] = BigInteger.valueOf(21);
 		BigInteger sum = ArraySumCalculator.sumBigIntegerStream(values);
 		assertEquals(25, sum.intValue());
+	}
+
+	@Test
+	public void sumBigIntegerStreamHigherThanMaxInteger() {
+		BigInteger[] values = { BigInteger.valueOf(Integer.MAX_VALUE), BigInteger.valueOf(17) };
+		BigInteger sum = ArraySumCalculator.sumBigIntegerStream(values);
+		assertEquals(new BigInteger("2147483664"), sum); // No overflow
+	}
+
+	@Test
+	public void sumBigIntegerStreamLowerThanMinInteger() {
+		BigInteger[] values = { BigInteger.valueOf(Integer.MIN_VALUE), BigInteger.valueOf(-17) };
+		BigInteger sum = ArraySumCalculator.sumBigIntegerStream(values);
+		assertEquals(new BigInteger("-2147483665"), sum); // No overflow
 	}
 
 	@Test
