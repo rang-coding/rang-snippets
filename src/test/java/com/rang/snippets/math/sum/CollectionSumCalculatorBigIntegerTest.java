@@ -144,7 +144,7 @@ public class CollectionSumCalculatorBigIntegerTest {
 	@Test
 	public void sumBigIntegerStreamWithEmtpyArray() {
 		Collection<BigInteger> values = Collections.emptyList();
-		BigInteger sum = CollectionSumCalculator.sumBigIntegerLoop(values);
+		BigInteger sum = CollectionSumCalculator.sumBigIntegerStream(values);
 		assertEquals(0, sum.intValue());
 	}
 
