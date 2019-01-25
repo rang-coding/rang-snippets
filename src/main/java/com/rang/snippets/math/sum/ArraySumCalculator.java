@@ -14,7 +14,7 @@ import java.util.Objects;
 public class ArraySumCalculator {
 
 	/**
-	 * Forms the sum over an array of primitive int (int[]) by using a conventional for-loop. Sums higher than
+	 * Forms the sum over an array of primitive int ({@code int[]}) by using a conventional for-loop. Sums higher than
 	 * 2147483647 or lower than -2147483648 will cause integer overflow.
 	 * 
 	 * @param values Values as array of primitive int
@@ -29,8 +29,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of primitive int (int[]) under the usage of streams. Sums higher than 2147483647 or
-	 * lower than -2147483648 will cause integer overflow.
+	 * Forms the sum over an array of primitive int ({@code int[]}) under the usage of streams. Sums higher than
+	 * 2147483647 or lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as array of primitive int
 	 * @return Sum as primitive int
@@ -42,8 +42,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an arbitrary number of primitive int (int...) by using a conventional for-loop. Sums higher
-	 * than 2147483647 or lower than -2147483648 will cause integer overflow.
+	 * Forms the sum over an arbitrary number of primitive int ({@code int...}) by using a conventional for-loop. Sums
+	 * higher than 2147483647 or lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as varargs of primitive int
 	 * @return Sum as primitive int
@@ -57,8 +57,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an arbitrary number of primitive int (int...) under the usage of streams. Sums higher than
-	 * 2147483647 or lower than -2147483648 will cause integer overflow.
+	 * Forms the sum over an arbitrary number of primitive int ({@code int...}) under the usage of streams. Sums higher
+	 * than 2147483647 or lower than -2147483648 will cause integer overflow.
 	 *
 	 * @param values Values as varargs of primitive int
 	 * @return Sum as primitive int
@@ -70,8 +70,9 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of Integer-objects (Integer[]) by using a conventional for-loop. Sums higher than
-	 * 2147483647 or lower than -2147483648 will cause integer overflow. Null values within the array will be ignored.
+	 * Forms the sum over an array of Integer-objects ({@code Integer[]}) by using a conventional for-loop. Sums higher
+	 * than 2147483647 or lower than -2147483648 will cause integer overflow. Null values within the array will be
+	 * ignored.
 	 *
 	 * @param values Values as array of Integer-objects
 	 * @return Sum as Integer-object
@@ -88,7 +89,7 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of Integer-objects (Integer[]) under the usage of streams. Sums higher than
+	 * Forms the sum over an array of Integer-objects ({@code Integer[]}) under the usage of streams. Sums higher than
 	 * 2147483647 or lower than -2147483648 will cause integer overflow. Null values within the array will be ignored.
 	 *
 	 * @param values Values as array of Integer-objects
@@ -101,8 +102,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of BigInteger (BigInteger[]) by using a conventional for-loop. Null values within the
-	 * array will be ignored.
+	 * Forms the sum over an array of BigInteger ({@code BigInteger[]}) by using a conventional for-loop. Null values
+	 * within the array will be ignored.
 	 *
 	 * @param values Values as array of BigInteger
 	 * @return Sum as BigInteger
@@ -119,8 +120,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of BigInteger (BigInteger[]) under the usage of streams. Null values within the array
-	 * will be ignored.
+	 * Forms the sum over an array of BigInteger ({@code BigInteger[]}) under the usage of streams. Null values within
+	 * the array will be ignored.
 	 *
 	 * @param values Values as array of BigInteger
 	 * @return Sum as BigInteger
@@ -132,8 +133,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of BigDecimal (BigDecimal[]) by using a conventional for-loop. Null values within the
-	 * array will be ignored.
+	 * Forms the sum over an array of BigDecimal ({@code BigDecimal[]}) by using a conventional for-loop. Null values
+	 * within the array will be ignored.
 	 *
 	 * @param values Values as array of BigDecimal
 	 * @return Sum as BigDecimal
@@ -150,8 +151,8 @@ public class ArraySumCalculator {
 	}
 
 	/**
-	 * Forms the sum over an array of BigDecimal (BigDecimal[]) under the usage of streams. Null values within the array
-	 * will be ignored.
+	 * Forms the sum over an array of BigDecimal ({@code BigDecimal[]}) under the usage of streams. Null values within
+	 * the array will be ignored.
 	 *
 	 * @param values Values as array of BigDecimal
 	 * @return Sum as BigDecimal
@@ -195,7 +196,7 @@ public class ArraySumCalculator {
 		// Array of BigInteger
 		BigInteger[] bigIntegerValues = { BigInteger.valueOf(1), BigInteger.valueOf(1), BigInteger.valueOf(2),
 				BigInteger.valueOf(3), BigInteger.valueOf(5), BigInteger.valueOf(8), BigInteger.valueOf(13),
-				BigInteger.valueOf(21), BigInteger.valueOf(34), };
+				BigInteger.valueOf(21), BigInteger.valueOf(34) };
 		BigInteger bigIntegerSumLoop = sumBigIntegerLoop(bigIntegerValues);
 		BigInteger bigIntegerSumStream = sumBigIntegerStream(bigIntegerValues);
 		System.out.println("Case 4 - Sum of BigInteger[] - " //
