@@ -181,22 +181,22 @@ public class PropertySumCalculator {
 		// Sum over Integer-property
 		Integer integerSumLoop = sumIntegerLoop(legoSets, LegoSet.class.getMethod("getPartsAsInteger"));
 		Integer integerSumStream = sumIntegerStream(legoSets, LegoSet::getPartsAsInteger);
-		System.out.println("Case 1 - Sum of Integer-property       - " //
-				+ "loop: " + integerSumLoop + "     "//
+		System.out.println("Case 1 - Sum of Integer-property    - " //
+				+ "loop: " + integerSumLoop + "    " //
 				+ "stream: " + integerSumStream);
 
 		// Sum over BigInteger-property
 		BigInteger bigIntegerSumLoop = sumBigIntegerLoop(legoSets, LegoSet.class.getMethod("getParts"));
 		BigInteger bigIntegerSumStream = sumBigIntegerStream(legoSets, LegoSet::getParts);
-		System.out.println("Case 2 - Sum of BigInteger-property    - " //
-				+ "loop: " + bigIntegerSumLoop + "     "//
+		System.out.println("Case 2 - Sum of BigInteger-property - " //
+				+ "loop: " + bigIntegerSumLoop + "    "//
 				+ "stream: " + bigIntegerSumStream);
 
 		// Sum over BigDecimal-property
 		BigDecimal bigDecimalSumLoop = sumBigDecimalLoop(legoSets, LegoSet.class.getMethod("getPrice"));
 		BigDecimal bigDecimalSumStream = sumBigDecimalStream(legoSets, LegoSet::getPrice);
-		System.out.println("Case 3 - Sum of BigDecimal-property    - " //
-				+ "loop: " + bigDecimalSumLoop + "   "//
+		System.out.println("Case 3 - Sum of BigDecimal-property - " //
+				+ "loop: " + bigDecimalSumLoop + "  "//
 				+ "stream: " + bigDecimalSumStream);
 	}
 
