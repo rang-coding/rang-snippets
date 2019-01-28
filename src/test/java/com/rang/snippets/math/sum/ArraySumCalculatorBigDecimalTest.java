@@ -1,6 +1,7 @@
 package com.rang.snippets.math.sum;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
@@ -8,7 +9,8 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 /**
- * This is the test-class for all methods of {@link ArraySumCalculator} handling arrays of BigDecimal.
+ * This is the test-class for all methods of {@link ArraySumCalculator} handling
+ * arrays of BigDecimal.
  */
 public class ArraySumCalculatorBigDecimalTest {
 
@@ -32,14 +34,14 @@ public class ArraySumCalculatorBigDecimalTest {
 	public void sumBigDecimalLoopWithMixedValues() {
 		BigDecimal[] values = { BigDecimal.valueOf(4.04), BigDecimal.valueOf(17.17), BigDecimal.valueOf(-21.21) };
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalLoop(values);
-		assertEquals(new BigDecimal("0.00"), sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
 	public void sumBigDecimalLoopWithZeroValues() {
 		BigDecimal[] values = { BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO };
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalLoop(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -69,7 +71,7 @@ public class ArraySumCalculatorBigDecimalTest {
 	public void sumBigDecimalLoopWithEmtpyArray() {
 		BigDecimal[] values = new BigDecimal[0];
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalLoop(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -102,14 +104,14 @@ public class ArraySumCalculatorBigDecimalTest {
 	public void sumBigDecimalStreamWithMixedValues() {
 		BigDecimal[] values = { BigDecimal.valueOf(4.04), BigDecimal.valueOf(17.17), BigDecimal.valueOf(-21.21) };
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalStream(values);
-		assertEquals(new BigDecimal("0.00"), sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
 	public void sumBigDecimalStreamWithZeroValues() {
 		BigDecimal[] values = { BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO };
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalStream(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -139,7 +141,7 @@ public class ArraySumCalculatorBigDecimalTest {
 	public void sumBigDecimalStreamWithEmtpyArray() {
 		BigDecimal[] values = new BigDecimal[0];
 		BigDecimal sum = ArraySumCalculator.sumBigDecimalStream(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test

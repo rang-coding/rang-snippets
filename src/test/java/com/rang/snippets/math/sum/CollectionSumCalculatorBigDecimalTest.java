@@ -1,6 +1,7 @@
 package com.rang.snippets.math.sum;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
@@ -39,14 +40,14 @@ public class CollectionSumCalculatorBigDecimalTest {
 		Collection<BigDecimal> values = Arrays.asList(BigDecimal.valueOf(4.04), BigDecimal.valueOf(17.17),
 				BigDecimal.valueOf(-21.21));
 		BigDecimal sum = CollectionSumCalculator.sumBigDecimalLoop(values);
-		assertEquals(new BigDecimal("0.00"), sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
 	public void sumBigDecimalLoopWithZeroValues() {
 		Collection<BigDecimal> values = Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
 		BigDecimal sum = CollectionSumCalculator.sumBigDecimalLoop(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -75,7 +76,7 @@ public class CollectionSumCalculatorBigDecimalTest {
 	public void sumBigDecimalLoopWithEmtpyArray() {
 		Collection<BigDecimal> values = Collections.emptyList();
 		BigDecimal sum = CollectionSumCalculator.sumBigDecimalLoop(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -111,14 +112,14 @@ public class CollectionSumCalculatorBigDecimalTest {
 		Collection<BigDecimal> values = Arrays.asList(BigDecimal.valueOf(4.04), BigDecimal.valueOf(17.17),
 				BigDecimal.valueOf(-21.21));
 		BigDecimal sum = CollectionSumCalculator.sumBigDecimalStream(values);
-		assertEquals(new BigDecimal("0.00"), sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
 	public void sumBigDecimalStreamWithZeroValues() {
 		Collection<BigDecimal> values = Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
 		BigDecimal sum = CollectionSumCalculator.sumBigDecimalStream(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -147,7 +148,7 @@ public class CollectionSumCalculatorBigDecimalTest {
 	public void sumBigDecimalStreamWithEmtpyArray() {
 		Collection<BigDecimal> values = Collections.emptyList();
 		BigDecimal sum = CollectionSumCalculator.sumBigDecimalStream(values);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test

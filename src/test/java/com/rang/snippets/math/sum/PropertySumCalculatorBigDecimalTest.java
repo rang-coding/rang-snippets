@@ -1,6 +1,7 @@
 package com.rang.snippets.math.sum;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
@@ -47,7 +48,7 @@ public class PropertySumCalculatorBigDecimalTest {
 				new TestObject("-21.21"));
 		BigDecimal sum = PropertySumCalculator.sumBigDecimalLoop(values,
 				TestObject.class.getMethod("getBigDecimalField"));
-		assertEquals(new BigDecimal("0.00"), sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -56,7 +57,7 @@ public class PropertySumCalculatorBigDecimalTest {
 				new TestObject(BigDecimal.ZERO));
 		BigDecimal sum = PropertySumCalculator.sumBigDecimalLoop(values,
 				TestObject.class.getMethod("getBigDecimalField"));
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -89,7 +90,7 @@ public class PropertySumCalculatorBigDecimalTest {
 		Collection<TestObject> values = Collections.emptyList();
 		BigDecimal sum = PropertySumCalculator.sumBigDecimalLoop(values,
 				TestObject.class.getMethod("getBigDecimalField"));
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -136,7 +137,7 @@ public class PropertySumCalculatorBigDecimalTest {
 		Collection<TestObject> values = Arrays.asList(new TestObject("4.04"), new TestObject("17.17"),
 				new TestObject("-21.21"));
 		BigDecimal sum = PropertySumCalculator.sumBigDecimalStream(values, TestObject::getBigDecimalField);
-		assertEquals(new BigDecimal("0.00"), sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -144,7 +145,7 @@ public class PropertySumCalculatorBigDecimalTest {
 		Collection<TestObject> values = Arrays.asList(new TestObject(BigDecimal.ZERO), new TestObject(BigDecimal.ZERO),
 				new TestObject(BigDecimal.ZERO));
 		BigDecimal sum = PropertySumCalculator.sumBigDecimalStream(values, TestObject::getBigDecimalField);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
@@ -173,7 +174,7 @@ public class PropertySumCalculatorBigDecimalTest {
 	public void sumBigDecimalStreamWithEmtpyArray() {
 		Collection<TestObject> values = Collections.emptyList();
 		BigDecimal sum = PropertySumCalculator.sumBigDecimalStream(values, TestObject::getBigDecimalField);
-		assertEquals(BigDecimal.ZERO, sum);
+		assertTrue(BigDecimal.ZERO.compareTo(sum) == 0);
 	}
 
 	@Test
