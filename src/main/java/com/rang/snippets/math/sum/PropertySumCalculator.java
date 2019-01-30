@@ -64,11 +64,11 @@ public class PropertySumCalculator {
 	 * @since 1.8
 	 */
 	public static <T> Integer sumIntegerStream(Collection<T> values, Function<? super T, Integer> getter) {
-		int sum = values.stream() //
+		Integer sum = values.stream() //
 				.filter(Objects::nonNull) //
 				.filter(value -> getter.apply(value) != null) //
-				.mapToInt(value -> getter.apply(value).intValue()).sum();
-		return Integer.valueOf(sum);
+				.collect(Collectors.reducing(Integer.valueOf(0), value -> getter.apply(value), Integer::sum));
+		return sum;
 	}
 
 	/**

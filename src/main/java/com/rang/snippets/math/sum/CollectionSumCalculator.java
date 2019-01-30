@@ -7,17 +7,20 @@ import java.util.Collection;
 import java.util.Objects;
 
 /**
- * This class contains multiple examples of how to form a sum over a collection of numbers.
+ * This class contains multiple examples of how to form a sum over a collection
+ * of numbers.
  *
  * @see {@link ArraySumCalculator} for more examples regarding Arrays.
- * @see {@link PropertySumCalculator} for more examples regarding properties of objects.
+ * @see {@link PropertySumCalculator} for more examples regarding properties of
+ *      objects.
  */
 public class CollectionSumCalculator {
 
 	/**
-	 * Forms the sum over a collection of Integer-objects ({@code Collection<Integer>}) by using a conventional
-	 * for-loop. Sums higher than 2147483647 or lower than -2147483648 will cause integer overflow. Null values within
-	 * the collection will be ignored.
+	 * Forms the sum over a collection of Integer-objects
+	 * ({@code Collection<Integer>}) by using a conventional for-loop. Sums higher
+	 * than 2147483647 or lower than -2147483648 will cause integer overflow. Null
+	 * values within the collection will be ignored.
 	 *
 	 * @param values Values as collection of Integer-objects
 	 * @return Sum as Integer-object
@@ -34,22 +37,28 @@ public class CollectionSumCalculator {
 	}
 
 	/**
-	 * Forms the sum over a collection of Integer-objects ({@code Collection<Integer>}) under the usage of streams. Sums
-	 * higher than 2147483647 or lower than -2147483648 will cause integer overflow. Null values within the collection
-	 * will be ignored.
+	 * Forms the sum over a collection of Integer-objects
+	 * ({@code Collection<Integer>}) under the usage of streams. Sums higher than
+	 * 2147483647 or lower than -2147483648 will cause integer overflow. Null values
+	 * within the collection will be ignored.
 	 *
 	 * @param values Values as collection of Integer-objects
 	 * @return Sum as Integer-object
 	 * @since 1.8
 	 */
 	public static Integer sumIntegerStream(Collection<Integer> values) {
-		int sum = values.stream().filter(Objects::nonNull).mapToInt(Integer::intValue).sum();
+		Integer sum = values.stream().filter(Objects::nonNull).reduce(Integer.valueOf(0), Integer::sum);
+		// int sum =
+		// values.stream().filter(Objects::nonNull).collect(Collectors.summingInt(Integer::intValue));
+		// int sum =
+		// values.stream().filter(Objects::nonNull).mapToInt(Integer::intValue).sum();
 		return Integer.valueOf(sum);
 	}
 
 	/**
-	 * Forms the sum over a collection of BigInteger ({@code Collection<BigInteger>}) by using a conventional for-loop.
-	 * Null values within the collection will be ignored.
+	 * Forms the sum over a collection of BigInteger
+	 * ({@code Collection<BigInteger>}) by using a conventional for-loop. Null
+	 * values within the collection will be ignored.
 	 *
 	 * @param values Values as collection of BigInteger
 	 * @return Sum as BigInteger
@@ -66,8 +75,9 @@ public class CollectionSumCalculator {
 	}
 
 	/**
-	 * Forms the sum over a collection of BigInteger ({@code Collection<BigInteger>}) under the usage of streams. Null
-	 * values within the collection will be ignored.
+	 * Forms the sum over a collection of BigInteger
+	 * ({@code Collection<BigInteger>}) under the usage of streams. Null values
+	 * within the collection will be ignored.
 	 *
 	 * @param values Values as collection of BigInteger
 	 * @return Sum as BigInteger
@@ -79,8 +89,9 @@ public class CollectionSumCalculator {
 	}
 
 	/**
-	 * Forms the sum over a collection of BigDecimal ({@code Collection<BigDecimal>}) by using a conventional for-loop.
-	 * Null values within the collection will be ignored.
+	 * Forms the sum over a collection of BigDecimal
+	 * ({@code Collection<BigDecimal>}) by using a conventional for-loop. Null
+	 * values within the collection will be ignored.
 	 *
 	 * @param values Values as collection of BigDecimal
 	 * @return Sum as BigDecimal
@@ -97,8 +108,9 @@ public class CollectionSumCalculator {
 	}
 
 	/**
-	 * Forms the sum over a collection of BigDecimal ({@code Collection<BigDecimal>}) under the usage of streams. Null
-	 * values within the collection will be ignored.
+	 * Forms the sum over a collection of BigDecimal
+	 * ({@code Collection<BigDecimal>}) under the usage of streams. Null values
+	 * within the collection will be ignored.
 	 *
 	 * @param values Values as collection of BigDecimal
 	 * @return Sum as BigDecimal
