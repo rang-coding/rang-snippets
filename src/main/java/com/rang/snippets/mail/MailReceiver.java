@@ -24,6 +24,7 @@ public class MailReceiver {
 
 		try (Store store = session.getStore(PROTOCOL)) {
 			store.connect(HOST, USER, PASSWORD);
+
 			try (Folder folder = store.getFolder(INBOX_FOLDER)) {
 				folder.open(Folder.READ_ONLY);
 
@@ -38,12 +39,10 @@ public class MailReceiver {
 					System.out.println("To:      " + message.getAllRecipients()[0]);
 					System.out.println("Date:    " + message.getReceivedDate());
 				}
-
 			}
 		} catch (MessagingException e) {
-			System.out.println("" + e);
+			System.out.println("Exception receiving emails:" + e);
 		}
-
 	}
 
 	public static void main(String[] args) {
