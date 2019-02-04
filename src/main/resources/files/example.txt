@@ -1,0 +1,9 @@
+RANG-snippets
+
+This is an example txt-file
+with multiple lines,
+blank lines
+and german umlauts.
+
+Viele Grüße!
+Emma
