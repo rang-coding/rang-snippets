@@ -18,6 +18,8 @@ import com.google.common.io.Resources;
 /**
  * This class contains multiple examples of how to read a txt-file from the
  * project's resource-folder.
+ * 
+ * @author emma@rang-coding.com
  */
 public class ResourceTxtFileReader {
 

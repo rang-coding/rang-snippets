@@ -1,4 +1,4 @@
-RANG-snippets
+RANG-coding
 
 This is an example txt-file
 with multiple lines,
