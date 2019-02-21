@@ -52,7 +52,7 @@ public class ResourceTxtFileReader {
 	 * @return File as String
 	 * @throws IOException        File cannot be read
 	 * @throws URISyntaxException {@link URL} cannot be parsed to {@link URI}
-	 * @since 1.7
+	 * @since 11
 	 */
 	public static String readFileFromResourcesAsString(String name) throws IOException, URISyntaxException {
 
