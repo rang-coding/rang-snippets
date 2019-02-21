@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * This class contains some predefined examples of {@LegoSet}.
@@ -46,5 +50,27 @@ public class LegoSetFixtures {
 			BigInteger.valueOf(633), new BigDecimal("79.99"), LocalDate.of(2017, Month.DECEMBER, 27));
 	public static LegoSet HEAVY_CARGO_TRANSPORT = new LegoSet("Heavy Cargo Transport", "60183", BigInteger.valueOf(301),
 			new BigDecimal("29.99"), LocalDate.of(2017, Month.DECEMBER, 27));
+
+	private static int NUMBER_OF_FIXTURES = 14;
+
+	public static List<LegoSet> getAsList() {
+		List<LegoSet> values = Arrays.asList(DOWNTOWN_DINER, ROLLER_COASTER, MOUNTAIN_POLICE_CHASE,
+				UNDERMINER_BANK_HEIST, CITY_CENTRAL_AIRPORT, GREAT_WALL_OF_CHINA, STATUE_OF_LIBERTY,
+				MODULAR_SKATE_HOUSE, MOBILE_STUNT_SHOW, FIRST_RESPONDER, RALLY_CAR, BUGATTI_CHIRON,
+				MOUNTAIN_POLICE_HEADQUARTERS, HEAVY_CARGO_TRANSPORT);
+		Collections.shuffle(values);
+		return values;
+	}
+
+	public static List<LegoSet> getAsList(int amount) {
+		List<LegoSet> values = new ArrayList<>(amount * 2);
+
+		List<LegoSet> all = getAsList();
+		for (int i = 0; i < amount; i++) {
+			int index = i % NUMBER_OF_FIXTURES;
+			values.add(all.get(index));
+		}
+		return values;
+	}
 
 }
