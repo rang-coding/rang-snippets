@@ -20,7 +20,7 @@ import com.itextpdf.text.pdf.PdfWriter;
  * @author emma@rang-coding.com
  *
  */
-public class ITextPdfWriter {
+public class SimpleITextPdfWriter {
 
 	/**
 	 * Writes an example Pdf-file to the file system.
