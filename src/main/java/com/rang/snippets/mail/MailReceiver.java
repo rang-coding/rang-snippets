@@ -10,43 +10,43 @@ import javax.mail.Store;
 
 public class MailReceiver {
 
-	private static final String PROTOCOL = "imaps";
-	private static final String HOST = "imap.gmail.com";
-	private static final String USER = "yyyyy@gmail.com";
-	private static final String PASSWORD = "xxxxx";
-	private static final String INBOX_FOLDER = "inbox";
+    private static final String PROTOCOL = "imaps";
+    private static final String HOST = "imap.gmail.com";
+    private static final String USER = "yyyyy@gmail.com";
+    private static final String PASSWORD = "xxxxx";
+    private static final String INBOX_FOLDER = "inbox";
 
-	public static void receiveMails() {
+    public static void receiveMails() {
 
-		Properties props = System.getProperties();
-		props.setProperty("mail.store.protocol", PROTOCOL);
-		Session session = Session.getDefaultInstance(props, null);
+        Properties props = System.getProperties();
+        props.setProperty("mail.store.protocol", PROTOCOL);
+        Session session = Session.getDefaultInstance(props, null);
 
-		try (Store store = session.getStore(PROTOCOL)) {
-			store.connect(HOST, USER, PASSWORD);
+        try (Store store = session.getStore(PROTOCOL)) {
+            store.connect(HOST, USER, PASSWORD);
 
-			try (Folder folder = store.getFolder(INBOX_FOLDER)) {
-				folder.open(Folder.READ_ONLY);
+            try (Folder folder = store.getFolder(INBOX_FOLDER)) {
+                folder.open(Folder.READ_ONLY);
 
-				Message[] messages = folder.getMessages();
-				System.out.println("Number of Messages: " + folder.getMessageCount() + " ("
-						+ folder.getUnreadMessageCount() + " unread)");
+                Message[] messages = folder.getMessages();
+                System.out.println("Number of Messages: " + folder.getMessageCount() + " ("
+                        + folder.getUnreadMessageCount() + " unread)");
 
-				for (Message message : messages) {
-					System.out.println("--------");
-					System.out.println("Subject: " + message.getSubject());
-					System.out.println("From:    " + message.getFrom()[0]);
-					System.out.println("To:      " + message.getAllRecipients()[0]);
-					System.out.println("Date:    " + message.getReceivedDate());
-				}
-			}
-		} catch (MessagingException e) {
-			System.out.println("Exception receiving emails:" + e);
-		}
-	}
+                for (Message message : messages) {
+                    System.out.println("--------");
+                    System.out.println("Subject: " + message.getSubject());
+                    System.out.println("From:    " + message.getFrom()[0]);
+                    System.out.println("To:      " + message.getAllRecipients()[0]);
+                    System.out.println("Date:    " + message.getReceivedDate());
+                }
+            }
+        } catch (MessagingException e) {
+            System.out.println("Exception receiving emails:" + e);
+        }
+    }
 
-	public static void main(String[] args) {
-		receiveMails();
-	}
+    public static void main(String[] args) {
+        receiveMails();
+    }
 
 }

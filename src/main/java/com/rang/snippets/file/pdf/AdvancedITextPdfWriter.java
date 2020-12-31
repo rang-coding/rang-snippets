@@ -17,8 +17,8 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.rang.snippets.domain.StarWarsCharacter;
-import com.rang.snippets.domain.StarWarsCharacterFixtures;
+import com.rang.snippets.fixtures.StarWarsCharacter;
+import com.rang.snippets.fixtures.StarWarsCharacterFixtures;
 
 /**
  * This is a simple example of how to create a Pdf-file using the iText-library.
